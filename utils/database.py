@@ -1,8 +1,10 @@
 from .database_connection import DatabaseConnection
+from typing import List, Dict, Union
 
 """
 Concerned with storing and retrieving books from a database.
 """
+Book = Dict(str, Union(str, int))
 
 DB_HOST = "data.db"
 
@@ -19,7 +21,7 @@ class Database:
     DB_HOST = "data.db"
 
     @classmethod
-    def create_book_table(cls):
+    def create_book_table(cls) -> None:
         """Creates a book table if it doesn't already exist."""
 
         with DatabaseConnection(cls.DB_HOST) as connection:
@@ -27,7 +29,7 @@ class Database:
             cursor.execute("CREATE TABLE IF NOT EXISTS books(name text primary key, author text, read integer)")
 
     @classmethod
-    def add_book(cls, name, author):
+    def add_book(cls, name: str, author: str) -> None:
         """Adds a book to the books table.
         
         Parameters
@@ -43,7 +45,7 @@ class Database:
             cursor.execute("INSERT INTO books VALUES(?, ?, 0)", (name, author))
 
     @classmethod
-    def get_all_books(cls):
+    def get_all_books(cls) -> List[Book]:
         """Gets all the books of the library."""
 
         with DatabaseConnection(cls.DB_HOST) as connection:
@@ -54,7 +56,7 @@ class Database:
         return books
 
     @classmethod
-    def mark_book_as_read(cls, name):
+    def mark_book_as_read(cls, name: str) -> None:
         """Marks a book as read.
 
         Parameters
@@ -68,7 +70,7 @@ class Database:
             cursor.execute("UPDATE books SET read=? WHERE name=?", (1, name))
 
     @classmethod
-    def delete_book(cls, name):
+    def delete_book(cls, name: str) -> None:
         """Deletes a book.
 
         Parameters
