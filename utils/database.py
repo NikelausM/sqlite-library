@@ -64,7 +64,7 @@ class Database:
         name : str
             The name of the book to be marked as read.
         """
-        
+
         with DatabaseConnection(cls.DB_HOST) as connection:
             cursor = connection.cursor()
             cursor.execute("UPDATE books SET read=? WHERE name=?", (1, name))
