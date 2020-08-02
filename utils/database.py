@@ -4,7 +4,7 @@ from typing import List, Dict, Union
 """
 Concerned with storing and retrieving books from a database.
 """
-Book = Dict(str, Union(str, int))
+Book = Dict[str, Union[str, int]]
 
 DB_HOST = "data.db"
 
@@ -64,7 +64,7 @@ class Database:
         name : str
             The name of the book to be marked as read.
         """
-
+        
         with DatabaseConnection(cls.DB_HOST) as connection:
             cursor = connection.cursor()
             cursor.execute("UPDATE books SET read=? WHERE name=?", (1, name))
