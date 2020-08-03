@@ -10,6 +10,8 @@
 ## Introduction
 SQLite-library is a console based application that uses console prompts to allow a user to interact with a digital library. The application uses an SQLite database to store the data.
 
+The purpose of this project was to become more familiar with SQLite.
+
 ## Features
 - Add book
 - List books
