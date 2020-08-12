@@ -1,3 +1,5 @@
+<p align="center"><img src="./images/logos/sqlite-python.jpg" alt="SQLite with Python logo." width=50%><p>
+
 # SQLite Library
 
 ## Table of Contents
@@ -19,7 +21,7 @@ The purpose of this project was to become more familiar with SQLite.
 - Delete book
 
 ## Screenshots
-<img src="./screenshots/menu_prompts.PNG" alt="A screenshot of the menu prompt available, including: add a new book, list all books, mark a book as read, delete a book, and quit">
+<img src="./images/screenshots/menu_prompts.PNG" alt="A screenshot of the menu prompt available, including: add a new book, list all books, mark a book as read, delete a book, and quit">
 
 ## Setup
 To run, in the console enter:
